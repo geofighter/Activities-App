@@ -16,6 +16,7 @@ export const RegisterPage = () =>{
                             type="text"
                             placeholder="Ej. Marcos"
                             fullWidth
+                            color="secondary"
                         />
                     </Grid>
                     <Grid item xs={12} sx={{ marginTop: 2 }}>
@@ -24,6 +25,7 @@ export const RegisterPage = () =>{
                             type="text"
                             placeholder="Ej. Esteban"
                             fullWidth
+                            color="secondary"
                         />
                     </Grid>
                     <Grid item xs={12} sx={{ marginTop: 2 }}>
@@ -32,29 +34,32 @@ export const RegisterPage = () =>{
                             type="text"
                             placeholder="Ej. Mendieta"
                             fullWidth
+                            color="secondary"
                         />
                     </Grid>
                     <Grid item xs={12} sx={{ marginTop: 2 }}>
                         <TextField
                             label="Email"
                             type="email"
-                            placeholder="Ej. correo@cobaeh.edu.mx"
+                            placeholder="Ej. micuenta@cobaeh.edu.mx"
                             fullWidth
+                            color="secondary"
                         />
                     </Grid>
                     <Grid item xs={12} sx={{ marginTop: 2 }}>
                         <TextField
                             label="Contraseña"
                             type="password"
-                            placeholder="Ej. miContraseña_actual"
+                            placeholder="Ej. Contraseña#0"
                             fullWidth
+                            color="secondary"
                         />
                     </Grid>
 
                     <Grid container spacing={2} sx={{ marginBottom: 2, marginTop: 2 }}>
 
                         <Grid item xs={12} sm={12}>
-                            <Button variant={"contained"} className="color-buttons" fullWidth>
+                            <Button variant={"contained"} className="button-primary" fullWidth>
                                 <Check sx={{ marginRight: 2, color: "#fff" }}/>
                                 <Typography color="white">Registrarme</Typography>
                             </Button>
@@ -63,7 +68,7 @@ export const RegisterPage = () =>{
                     </Grid>
 
                     <Grid container sx={{ marginBottom: 4 }} direction="row" justifyContent="end">
-                        <Link component={ RouterLink } color="inherit" to="/auth/login">
+                        <Link component={ RouterLink } color="secondary" to="/auth/login">
                             Ya tengo una Cuenta
                         </Link>
                     </Grid>

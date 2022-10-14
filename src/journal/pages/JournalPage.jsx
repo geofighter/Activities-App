@@ -10,7 +10,7 @@ export const JournalPage = () =>{
                 <NothingSelectedView />
                 {/*<NoteView/>*/}
                 <IconButton
-                    className="color-buttons"
+                    className="button-secondary"
                     size="large"
                     sx={{
                         color: 'white',

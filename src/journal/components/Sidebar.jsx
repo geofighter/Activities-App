@@ -35,17 +35,17 @@ export const Sidebar = ({ drawerWidth }) =>{
                 </Toolbar>
                 <Divider />
 
-                <List sx={{':hover': { color: 'white' }}}>
+                <List>
                     {
                         ['Enero','Febrero','Marzo','Abril'].map( text => (
-                           <ListItem key={ text } disablePadding sx={{':hover': { backgroundImage: 'linear-gradient(to right, #6a11cb 0%, #2575fc 100%)', color: 'white' }, color: 'primary.main'}}>
-                               <ListItemButton sx={{':hover': {color:"white"} }}>
+                           <ListItem key={ text } disablePadding>
+                               <ListItemButton>
                                    <ListItemIcon>
                                        <TurnedInNot />
                                    </ListItemIcon>
                                    <Grid container>
-                                       <ListItemText primary={ text }/>
-                                       <ListItemText secondary={ 'There are many variations of passages.' } />
+                                       <ListItemText sx={{ color: "primary.main" }} primary={ text }/>
+                                       <ListItemText sx={{ color: "accent.main" }} secondary={ 'There are many variations of passages.' } />
                                    </Grid>
                                </ListItemButton>
                            </ListItem>

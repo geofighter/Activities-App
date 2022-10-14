@@ -4,10 +4,25 @@ html, body, .MuiTypography-root{
 .box-shadow{
     box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
 }
-.color-buttons{
-    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+.gradient-primary{
+    background-image: linear-gradient(to right, #691B31 0%, #A02142 100%);
+}
+.button-primary{
+    background-image: linear-gradient(to right, #691B31 0%, #A02142 100%);
     border-radius: 10px !important;
 }
-.MuiListItemText-secondary:hover{
-    color: white !important;
+.gradient-secondary{
+    /*background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);*/
+    background-image: linear-gradient(to right, #BC955B 0%, #DDC9A3 100%);
+}
+.button-secondary{
+    background-image: linear-gradient(to right, #BC955B 0%, #DDC9A3 100%);
+    border-radius: 10px !important;
+}
+.gradient-accent{
+    background-image: linear-gradient(to right, #6F7271 0%, #98989A 100%);
+}
+.button-accent{
+    background-image: linear-gradient(to right, #6F7271 0%, #98989A 100%);
+    border-radius: 10px !important;
 }
