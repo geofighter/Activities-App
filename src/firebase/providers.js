@@ -60,3 +60,7 @@ export const signInWithGoogle = async () => {
         }
     }
 }
+
+export const logoutFirebase = async () => {
+    return await FireBaseAuth.signOut();
+}

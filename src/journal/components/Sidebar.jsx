@@ -9,11 +9,14 @@ import {
     ListItemText,
     Toolbar,
     Typography,
-    Grid
+    Grid, Avatar
 } from "@mui/material";
-import {TurnedInNot} from "@mui/icons-material";
+import {Image, TurnedInNot} from "@mui/icons-material";
+import {FireBaseAuth} from "../../firebase/config.js";
 
 export const Sidebar = ({ drawerWidth }) =>{
+
+    const { displayName, email, photoURL } = FireBaseAuth.currentUser;
 
     return(
         <Box
@@ -29,9 +32,15 @@ export const Sidebar = ({ drawerWidth }) =>{
                 }}
             >
                 <Toolbar>
-                    <Typography variant="h6" noWrap component="div">
-                        Geo
-                    </Typography>
+                    <Avatar sx={{marginLeft: -2}} alt={ displayName } src={ photoURL ? photoURL : '' } />
+                    <List>
+                        <ListItem>
+                            <ListItemText><Typography component="div" color="primary" fontSize="12px" fontWeight="bold">{ displayName }</Typography></ListItemText>
+                        </ListItem>
+                        <ListItem sx={{ marginTop: -2, textDecoration: "underline" }}>
+                            <ListItemText><Typography component="div" color="primary" fontSize="11px" fontWeight="bold">{ email }</Typography></ListItemText>
+                        </ListItem>
+                    </List>
                 </Toolbar>
                 <Divider />
 
