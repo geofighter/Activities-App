@@ -14,6 +14,7 @@ export const Navbar = ({ drawerWidth = 240 }) =>{
     return(
         <AppBar
             position="fixed"
+            className="animate__animated animate__bounceInDown"
             sx={{
                 width: { sm: `calc(100% - ${ drawerWidth }px)` },
                 ml: { sm: `${ drawerWidth }px` }

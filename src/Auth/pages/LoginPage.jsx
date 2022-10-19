@@ -32,7 +32,7 @@ export const LoginPage = () =>{
 
     return(
         <AuthLayout title="Login">
-            <form onSubmit={ onSubmit }>
+            <form onSubmit={ onSubmit } className="">
                 <Grid container>
                     <Grid item xs={12} sx={{ marginTop: 2 }}>
                         <TextField
@@ -59,7 +59,7 @@ export const LoginPage = () =>{
                         />
                     </Grid>
 
-                    <Grid container spacing={2} sx={{ marginBottom: 2, marginTop: 2 }} display={ !!errorMessage ? '' : 'none' }>
+                    <Grid container className="animate__animated animate__tada" spacing={2} sx={{ marginBottom: 2, marginTop: 2 }} display={ !!errorMessage ? '' : 'none' }>
                         <Grid item xs={12} sm={12}>
                             <Alert severity="error">
                                 { errorMessage }
