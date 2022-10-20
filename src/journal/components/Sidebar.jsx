@@ -13,11 +13,12 @@ import {
 } from "@mui/material";
 import {Image, TurnedInNot} from "@mui/icons-material";
 import {FireBaseAuth} from "../../firebase/config.js";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {SidebarItem} from "./SidebarItem";
+import {setActiveNote} from "../../store/journal/journalSlice.js";
 
 export const Sidebar = ({ drawerWidth }) =>{
-
+debugger
     // const { displayName, email, photoURL } = FireBaseAuth.currentUser;
     const { displayName, email, photoURL } = useSelector(state => state.auth);
     const { notes } = useSelector( state => state.journal );
@@ -49,13 +50,22 @@ export const Sidebar = ({ drawerWidth }) =>{
                 </Toolbar>
                 <Divider />
 
-                <List>
-                    {
-                        notes.map( note => (
-                           <SidebarItem key={ note.id } note={ note }/>
-                        ))
-                    }
-                </List>
+                {
+                    notes.length != 0
+                    ?
+                        <List>
+                            {
+                                notes.map( note => (
+                                    <SidebarItem key={ note.id } note={ note }/>
+                                ))
+                            }
+                        </List>
+                    :
+                        <List sx={{ padding: 8 }}>
+                            <Typography color="accent.main" sx={{ fontWeight: 'bold', fontSize: 15, fontStyle: 'italic' }}>Aún no tienes notas creadas</Typography>
+                        </List>
+                }
+
 
             </Drawer>
 

@@ -13,7 +13,7 @@ export const startNewNote = () => {
         const newNote = {
             title: '',
             body: '',
-            date: new Date().getTime(),
+            date: new Date().toUTCString(),
         }
 
         const newDoc = doc( collection( FirebaseDB, `${uid}/journal/notes`) );
