@@ -1,5 +1,5 @@
 import {Grid, Typography} from "@mui/material";
-import {StarRate} from "@mui/icons-material";
+import {ArticleTwoTone, FeedTwoTone, StarRate} from "@mui/icons-material";
 
 export const NothingSelectedView = () =>{
 
@@ -13,7 +13,7 @@ export const NothingSelectedView = () =>{
               sx={{ minHeight: 'calc(100vh - 100px)', backgroundColor: 'secondary.aux', borderRadius: 10, boxShadow: 5 }}
         >
             <Grid item xs={ 12 }>
-                <StarRate sx={{ fontSize: 100, color: 'primary.main' }}/>
+                <FeedTwoTone sx={{ fontSize: 100, color: 'primary.main' }}/>
             </Grid>
             <Grid item xs={ 12 }>
                 <Typography color="accent.main" variant="h5">Selecciona / Crea una nota</Typography>
