@@ -12,7 +12,7 @@ import 'sweetalert2/dist/sweetalert2.css';
 export const NoteView = () =>{ 
 
     const dispatch = useDispatch();
-    const { activeNote: note, savedMessage } = useSelector(state => state.journal);
+    const { activeNote: note, savedMessage, isSaving } = useSelector(state => state.journal);
 
     const { body, title, onInputChange, formState, date } = useForm( note );
 
@@ -23,11 +23,11 @@ export const NoteView = () =>{
 
     //efecto que controla el cambio del string en la propiedad savedMessage del state
     useEffect(() => {
+        debugger
         //aqui lanzar el modal de notificacion
         if( savedMessage.length > 0){
             Swal.fire('Nota Actualizada', savedMessage, 'success');
         }
-        console.log(savedMessage)
     }, [ savedMessage ]);
 
     //guardar nota editada en firebase, llamando el thunk para peticiones asincronas
@@ -40,7 +40,7 @@ export const NoteView = () =>{
             <Grid item>
                 <Typography fontSize={39} fontWeight="lighter">{ date }</Typography>
             </Grid>
-            <Grid item>
+            <Grid item display={ !!isSaving ? 'none' : ''}>
                 <Button className="button-accent" sx={{ padding: 2, marginBottom:2 }}
                     onClick={ onSaveNote }
                 >
