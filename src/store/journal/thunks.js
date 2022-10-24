@@ -1,7 +1,6 @@
 import { collection , doc, setDoc } from "firebase/firestore/lite";
 import { FirebaseDB } from "../../firebase/config";
 import {addNewEmptyNote, savingNewNote, setActiveNote, setNotes, setSaving, updateNote} from "./journalSlice.js";
-import {useSelector} from "react-redux";
 import {loadNotes} from "../../helpers/loadNotes.js";
 
 export const startNewNote = () => {
@@ -50,10 +49,15 @@ export const startSaveNote = () => {
         const docRef = doc( FirebaseDB, path );
         //el argumento de options "merge" se usa para que en dado caso de que haya campos adicionales a la coleccion, estos se agreguen correctamente
         const upDoc = await setDoc( docRef, noteToFirestore, { merge: true } );
-        // if ( !!upDoc ){
-            dispatch( updateNote( activeNote ));
-        // }
-        ///LI4LA5Otf6hC7O0vZX257l8Qvev1/journal/notes/4i2M0K6YIrjoO7zK9rpw
+        dispatch( updateNote( activeNote ));
 
     }
+}
+export const startUploadingFiles = ( files = [] ) => {
+
+    return async ( dispatch ) => {
+        dispatch(setSaving());
+        console.log(files)
+    }
+
 }
