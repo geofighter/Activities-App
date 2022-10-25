@@ -8,6 +8,7 @@ import {setActiveNote} from "../../store/journal/journalSlice.js";
 import {startSaveNote, startUploadingFiles} from "../../store/journal/thunks.js";
 import Swal from "sweetalert2";
 import 'sweetalert2/dist/sweetalert2.css';
+import {CheckingAuth} from "../../ui/index.js";
 
 export const NoteView = () =>{ 
 
@@ -50,12 +51,17 @@ export const NoteView = () =>{
         }
     }
 
+    if ( isSaving === true ){
+        return <CheckingAuth />;
+    }
+
     return(
         <Grid container className="animate__animated animate__fadeInUpBig" direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 1 }}>
             <Grid item>
                 <Typography fontSize={39} fontWeight="lighter">{ note ? date : '' }</Typography>
             </Grid>
-            <Grid item display={ !!isSaving ? 'none' : ''}>
+
+            <Grid item className={ !!isSaving ? "animate__animated animate__fadeOut" : "animate__animated animate__fadeIn" }  >
                 <input
                     type="file"
                     multiple
@@ -63,14 +69,14 @@ export const NoteView = () =>{
                     onChange={ onFileInputChange }
                     style={{ display: "none" }}
                 />
-                <Button className="button-secondary" sx={{ padding: 2, marginBottom: 2, marginRight: 2 }}
-                        onClick={ () => fileInputRef.current.click() }
+                <Button className={ !!isSaving ? "animate__animated animate__fadeOut button-secondary" : "animate__animated animate__fadeIn button-secondary" } sx={{ padding: 2, marginBottom: 2, marginRight: 2 }}
+                        onClick={ () => fileInputRef.current.click() } disabled={ !!isSaving }
                 >
                     <UploadTwoTone sx={{ fontSize: 30, marginRight: 1, color: "#fff" }}/>
                     <Typography color="white">Subir Archivos</Typography>
                 </Button>
-                <Button className="button-accent" sx={{ padding: 2, marginBottom:2 }}
-                    onClick={ onSaveNote }
+                <Button className={ !!isSaving ? "animate__animated animate__fadeOut button-accent" : "animate__animated animate__fadeIn button-accent" } sx={{ padding: 2, marginBottom:2 }}
+                    onClick={ onSaveNote } disabled={ !!isSaving }
                 >
                     <SaveTwoTone sx={{ fontSize: 30, marginRight: 1, color: "#fff" }}/>
                     <Typography color="white">Guardar</Typography>
@@ -103,7 +109,7 @@ export const NoteView = () =>{
                 />
             </Grid>
             {/*  Image gallery  */}
-            <ImageGallery />
+            <ImageGallery images={ note.imageUrls }/>
 
         </Grid>
     );
