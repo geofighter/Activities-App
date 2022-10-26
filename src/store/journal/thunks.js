@@ -1,7 +1,7 @@
-import { collection , doc, setDoc } from "firebase/firestore/lite";
+import { collection , doc, setDoc, deleteDoc } from "firebase/firestore/lite";
 import { FirebaseDB } from "../../firebase/config";
 import {
-    addNewEmptyNote,
+    addNewEmptyNote, deleteNoteById,
     savingNewNote,
     setActiveNote,
     setImgsUrl,
@@ -79,4 +79,25 @@ export const startUploadingFiles = ( files = [] ) => {
         if ( photosUrls ) dispatch( setImgsUrl( photosUrls ) );
     }
 
+}
+
+export const startDeleteNote = ({ id }) => {
+    return async ( dispatch, getState ) => {
+        debugger
+        const { uid } = getState().auth;
+        const { notes } = getState().journal;
+        dispatch(setSaving());
+        notes.map(note => {
+            if ( note.id === id ){
+                // const delDoc = await deleteDoc() ;
+                const path = `${ uid }/journal/notes/${ id }`;
+                console.log(path)
+                const docRef = doc( FirebaseDB, path);
+                deleteDoc( docRef );
+                //actualzar el state
+                dispatch( deleteNoteById({id}) );
+
+            }
+        });
+    }
 }

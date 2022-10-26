@@ -4,18 +4,13 @@ import {
     Drawer,
     List,
     ListItem,
-    ListItemButton,
-    ListItemIcon,
     ListItemText,
     Toolbar,
     Typography,
-    Grid, Avatar
+    Avatar
 } from "@mui/material";
-import {Image, TurnedInNot} from "@mui/icons-material";
-import {FireBaseAuth} from "../../firebase/config.js";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {SidebarItem} from "./SidebarItem";
-import {setActiveNote} from "../../store/journal/journalSlice.js";
 
 export const Sidebar = ({ drawerWidth }) =>{
 debugger
@@ -49,7 +44,6 @@ debugger
                     </List>
                 </Toolbar>
                 <Divider />
-
                 {
                     notes.length != 0
                     ?

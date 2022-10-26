@@ -81,6 +81,12 @@ export const NoteView = () =>{
                     <SaveTwoTone sx={{ fontSize: 30, marginRight: 1, color: "#fff" }}/>
                     <Typography color="white">Guardar</Typography>
                 </Button>
+                {/*<Button className={ !!isSaving ? "animate__animated animate__fadeOut button-primary" : "animate__animated animate__fadeIn button-primary" } sx={{ padding: 2, marginBottom:2 }}*/}
+                {/*        onClick={ onSaveNote } disabled={ !!isSaving }*/}
+                {/*>*/}
+                {/*    <SaveTwoTone sx={{ fontSize: 30, marginRight: 1, color: "#fff" }}/>*/}
+                {/*    <Typography color="white">Eliminar</Typography>*/}
+                {/*</Button>*/}
             </Grid>
 
             <Grid container>
