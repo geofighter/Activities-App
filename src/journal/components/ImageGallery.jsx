@@ -3,7 +3,7 @@ import {ImageListItem, ImageList, Typography} from '@mui/material';
 import {SentimentDissatisfiedTwoTone} from "@mui/icons-material";
 
 export const ImageGallery = ({ images: itemData = []}) => {
-    console.log(itemData)
+    // console.log(itemData)
     // if (itemData === undefined) itemData = [];
     return (
         <>

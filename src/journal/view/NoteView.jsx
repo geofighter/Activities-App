@@ -46,7 +46,6 @@ export const NoteView = () =>{
             return;
         }
         else{
-            console.log("subiendo files xD")
             dispatch( startUploadingFiles( target.files ) );
         }
     }

@@ -31,7 +31,6 @@ export const SidebarItem = ({ note: {body, id, title = '', date, imageUrls = []}
             reverseButtons: true,
         }).then((result) => {
             if (result.isConfirmed) {
-                debugger
                 dispatch(startDeleteNote({id}));
                 confirmDialog.fire(
                     'Nota Eliminada',
@@ -42,7 +41,6 @@ export const SidebarItem = ({ note: {body, id, title = '', date, imageUrls = []}
                 /* Read more about handling dismissals below */
                 result.dismiss === Swal.DismissReason.cancel
             ) {
-                debugger;
                 return;
                 confirmDialog.fire(
                     'Operación Cancelada',
@@ -66,12 +64,12 @@ export const SidebarItem = ({ note: {body, id, title = '', date, imageUrls = []}
 
     return(
         <ListItem className="animate__animated animate__slideInLeft" disablePadding>
-            <ListItemButton onClick={ onDeleteNote }>
-                <ListItemIcon>
-                    <Delete color="primary"/>
-                </ListItemIcon>
-            </ListItemButton>
             <ListItemButton onClick={ onSelectNote }>
+                <ListItemButton onClick={ onDeleteNote }>
+                    <ListItemIcon>
+                        <Delete color="primary"/>
+                    </ListItemIcon>
+                </ListItemButton>
                 <Grid container>
                     <ListItemText sx={{ color: "secondary.main" }} primary={ title }/>
                     <ListItemText sx={{ color: "accent.main" }} secondary={ shortBody } />

@@ -53,13 +53,10 @@ export const journalSlice = createSlice({
       state.savedMessage = `<b>${action.payload.title}</b>, se ha actualizado de forma correcta!`;
     },
     deleteNoteById: (state, action) => {
+      debugger
       state.isSaving = false;
-      state.activeNote = []
-      console.log(action.payload.id);
-      console.log(  )
-      // console.log( state.notes.filter((item) => item === `${action.payload.id}` ))
-      // state.notes = state.notes.filter((item) => item === `${action.payload.id}`);
-
+      state.activeNote = null;
+      state.notes = state.notes.filter( note => note.id != action.payload );
     },
     setImgsUrl:( state, action) => {
       state.activeNote.imageUrls = [ ...state.activeNote.imageUrls, ...action.payload ];

@@ -13,7 +13,6 @@ import {useSelector} from "react-redux";
 import {SidebarItem} from "./SidebarItem";
 
 export const Sidebar = ({ drawerWidth }) =>{
-debugger
     // const { displayName, email, photoURL } = FireBaseAuth.currentUser;
     const { displayName, email, photoURL } = useSelector(state => state.auth);
     const { notes } = useSelector( state => state.journal );

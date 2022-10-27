@@ -86,18 +86,12 @@ export const startDeleteNote = ({ id }) => {
         debugger
         const { uid } = getState().auth;
         const { notes } = getState().journal;
+        console.log(`ARRAY DE NOTAS ${notes}`)
         dispatch(setSaving());
-        notes.map(note => {
-            if ( note.id === id ){
-                // const delDoc = await deleteDoc() ;
-                const path = `${ uid }/journal/notes/${ id }`;
-                console.log(path)
-                const docRef = doc( FirebaseDB, path);
-                deleteDoc( docRef );
-                //actualzar el state
-                dispatch( deleteNoteById({id}) );
-
-            }
-        });
+        const path = `${ uid }/journal/notes/${ id }`;
+        // console.log(path)
+        const docRef = doc( FirebaseDB, path);
+        await deleteDoc( docRef );
+        dispatch( deleteNoteById(id) );
     }
 }
